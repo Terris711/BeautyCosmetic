@@ -14,9 +14,13 @@ public class test {
 	public static void main(String[] args) throws SQLException {
 		CategoryDAO cat= new CategoryDAO();
 		ProductDAO pro= new ProductDAO();
-		for (Product p : pro.getAllProduct()) {
-			System.out.println(p.getName());
-		}
+		AccountDAO acc= new AccountDAO();
+//		
+	System.out.println(acc.getAccountByUsernameAndPassword("Anna456", "456").getEmail());
+
+	
+	
+	
 	
 		
 		
