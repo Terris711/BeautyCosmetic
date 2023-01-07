@@ -1,6 +1,6 @@
 package model;
 
-public class User {
+public class Account {
 	private int id;
 	private String username;
 	private String password;
@@ -50,7 +50,7 @@ public class User {
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	public User(int id, String username, String password, String name, String email, String phone, String address) {
+	public Account(int id, String username, String password, String name, String email, String phone, String address) {
 		super();
 		this.id = id;
 		this.username = username;
@@ -60,11 +60,11 @@ public class User {
 		this.phone = phone;
 		this.address = address;
 	}
-	public User() {
+	public Account() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public User(String username, String password, String name, String email, String phone, String address) {
+	public Account(String username, String password, String name, String email, String phone, String address) {
 		super();
 		this.username = username;
 		this.password = password;

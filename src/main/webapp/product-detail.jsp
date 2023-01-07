@@ -1,11 +1,13 @@
-<%@page import="dao.CategoryDAO"%>
+<%@page import="dao.*"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
+
 <html>
 <head>
- 
+ <c:set var="productDAO" value="<%=new ProductDAO()%>"></c:set>
+<c:set var="products" value="${productDAO.allProduct}"></c:set>
+<!DOCTYPE html>
 </head>
 <body>
 
@@ -40,6 +42,7 @@
                         </ol>
                     </div>
                 </div>
+                
                 <div class="col-xl-7 col-lg-7 col-md-6">
                     <div class="single-product-details">
                         <h2>Total Cleans'R Remove-It-All Cleanser</h2>

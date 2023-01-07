@@ -23,7 +23,7 @@ public class ProductDAO {
 		
 		try {
 			conn = GetConnection.getConnection();
-			String sql = "SELECT * FROM product;";
+			String sql = "SELECT p.*,c.name as category_name,b.name as brand_name FROM product p JOIN brand b ON p.brand_id=b.id JOIN category c ON c.id=p.category_id;";
 			ps = conn.prepareStatement(sql);
 			rs = ps.executeQuery();
 			
@@ -35,18 +35,20 @@ public class ProductDAO {
 				product.setPackageSize(rs.getString("package_size"));
 				product.setDescription(rs.getString("description"));
 				product.setUnitPrice(rs.getDouble("unit_price"));
-				Brand brand = new Brand (rs.getInt("brand_id"),"");
+				Brand brand = new Brand (rs.getInt("brand_id"),rs.getString("brand_name"));
 				product.setBrand(brand);
 				product.setLotNumber(rs.getString("lot_number"));
-				Category cat = new Category (rs.getInt("category_id"),"");
+				Category cat = new Category (rs.getInt("category_id"),rs.getString("category_name"));
 				product.setCategory(cat);
 				System.out.println(rs.getLong("category_id") + "/n");
 				products.add(product);	
 			} 
-			conn.close();
+			
 		} catch (Exception ex) {
 			Logger.getLogger(ProductDAO.class.getName()).log(Level.SEVERE, null, ex);
-		}		
+		} finally {
+			GetConnection.close(conn, ps, rs);
+		}
 		return products;
 	}
 }
