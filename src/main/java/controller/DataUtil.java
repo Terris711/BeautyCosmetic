@@ -11,7 +11,11 @@ import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
-import
+
+
+import model.Account;
+import model.Order;
+
 
 public class DataUtil {
 	public int getNumberOfPage (int count, int view) {
@@ -32,8 +36,8 @@ public class DataUtil {
 	
 	public void sendEmail(String email, String name, String passwordAccount) {
 		String to = email; // how i test -> lay email myself -> test :)
-	    String from = "dandanewt11344@gmail.com"; // get your own email -> khuyen lay gmail anh nha :)
-	    String password = "dandanewt"; // put your own password for email :)
+		String from = "beautycosmetic3mien@gmail.com"; 
+	    String password = "CodingMentorK3";
 	    
         Properties props = new Properties();
         props.put("mail.smtp.host", "smtp.gmail.com");
@@ -56,9 +60,7 @@ public class DataUtil {
             message.setFrom(new InternetAddress(from));
             message.setRecipients(Message.RecipientType.TO,
                     InternetAddress.parse(to));
-            message.setSubject("Forgot Password"); // this is subject anh nhe :)
-//            message.setText("Hi " + name + ", you chose to get your password back. Here is your old password: " + passwordAccount
-//                 +   ". Please using this to login again."); // this is message anh nhe :) 
+            message.setSubject("Forgot Password"); 
             message.setContent("<p>Hello <h1>" + name + "</h1>,<br> "
             		+ "you chose to get your Password back. Following is your old Password:<br>"
             		+ "<h2>" + passwordAccount + "</h2>.<br>"
@@ -77,9 +79,9 @@ public class DataUtil {
 	
 	
 	public void sendInvoice(Account account, Order order) {
-		String to = account.getEmail(); // how i test -> lay email myself -> test :)
-	    String from = "dandanewt11344@gmail.com"; // get your own email -> khuyen lay gmail anh nha :)
-	    String password = "dandanewt"; // put your own password for email :)
+		String to = account.getEmail(); 
+	    String from = "beautycosmetic3mien@gmail.com"; 
+	    String password = "CodingMentorK3"; 
 	    
         Properties props = new Properties();
         props.put("mail.smtp.host", "smtp.gmail.com");
@@ -102,25 +104,25 @@ public class DataUtil {
             message.setFrom(new InternetAddress(from));
             message.setRecipients(Message.RecipientType.TO,
                     InternetAddress.parse(to));
-            message.setSubject("FURNIX Invoice Confirmation!"); // this is subject anh nhe :)
+            message.setSubject("Invoice Confirmation!");
 //            message.setText("Hi " + name + ", you chose to get your password back. Here is your old password: " + passwordAccount
 //                 +   ". Please using this to login again."); // this is message anh nhe :) 
-            message.setContent("<p>Hello <h1>" + account.getFirstName() + "</h1>"
+            message.setContent("<p>Hello <h1>" + account.getName() + "</h1>"
             		+ "Thank you for your recent order from\n"
-            		+ "Furnix Minimal Furniture Pty Ltd, ACN 097 147 932, 227 Elizabeth St, NSW AUSTRALIA 2000.\n"
+            		+ "Beauty Cosmetic.\n"
             		+ "\n"
             		+ ". As this order has now been processed we are unable to cancel or amend it.\n"
             		+ "\n"
             		+ "We will send you an email notification once your order has been dispatched - for stock orders this is normally within 1-2 business days of order placement. Non-stock orders are normally dispatched within 7 business days of order placement."
             		+ "<hr>"
             		+ "<h2>Shipping Information</h2>"
-            		+ "FURNIX Pty Ltd, ABN 82 097 147 932, 227 Elizabeth St, NSW AUSTRALIA 2000."
+            		+ "3Mien PTY Ltd"
             		+ "<h2>Customer Address</h2>"
-            		+ account.getFirstName() + " " + account.getLastName() + "<br>"
+            		+ account.getName()+"<br>"
             		+ account.getEmail() 
             		+ "<h2>Total Purchase: </h2>"
             		
-            		+ order.getPrice() 
+//           		+ order() 
             		
             		
             		

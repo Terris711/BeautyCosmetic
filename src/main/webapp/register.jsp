@@ -63,24 +63,28 @@
                 <div class="col-lg-8 col-sm-12">
                     <div class="register">
                         <p>Please input your detail here.</p>
-                        <form action="" id="form-login">
+                        <form action="RegisterServlet" id="form-login" method="post">
+      
                             <div class="form-group">
-                                <input type="text" class="form-input" placeholder="Name">
+                                <input type="text" name="username" class="form-input" placeholder="Username">
                             </div>
                             <div class="form-group">
-                
-                                <input type="text" class="form-input" placeholder="Username">
-                            </div>
-                            <div class="form-group">
-                                <input type="password" class="form-input" placeholder="Password">
+                                <input type="password" name="password" class="form-input" placeholder="Password">
             
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-input" placeholder="Address">
+                                <input type="text" name="name" class="form-input" placeholder="Name">
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-input" placeholder="Phone">
+                                <input type="email" name="email" class="form-input" placeholder="Email">
                             </div>
+                            <div class="form-group">
+                                <input type="text" name="address" class="form-input" placeholder="Address">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="phone" class="form-input" placeholder="Phone">
+                            </div>
+                            	
                             <input type="submit" value="REGISTER" class="form-submit">
 
                         </form>

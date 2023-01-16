@@ -1,3 +1,4 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -41,7 +42,7 @@
                 <div class="col-lg-12">
                     <h2>SIGN IN</h2>
                     <ul class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item"><a href=""index.jsp">Home</a></li>
                         <li class="breadcrumb-item active"> Sign In </li>
                     </ul>
                 </div>
@@ -56,9 +57,10 @@
                 <div class="col-lg-8 col-sm-12">
                     <div class="sign-in">
                         <p>This is the first time you log in, please register.</p>
-                        <form action="LoginServlet" id="form-signin" method="get">
+                        <form action="LoginServlet" id="form-signin" method="post">
                             <div class="form-group">
                                 <i class="far fa-user"></i>
+                                <p style="color: red">${err}</p>
                                 <input type="text" class="form-input" name= "username" placeholder="Username">
                             </div>
                             <div class="form-group">
@@ -68,6 +70,10 @@
                                     <i class="far fa-eye"></i>
                                 </div>
                             </div>
+                            	<span>
+								<input type="checkbox" class="checkbox"> 
+								Keep me signed in
+							</span>
                             <input type="submit" value="SIGN IN" class="form-submit">
 
                         </form>

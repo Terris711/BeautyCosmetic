@@ -69,6 +69,7 @@ public class AccountBOServlet extends HttpServlet {
 	private void listAccount (HttpServletRequest request, HttpServletResponse response) throws Exception {
 		List<Account> accounts = accountDAO.getAllAccount();
 		request.setAttribute("ACCOUNT_LIST", accounts);
+		System.out.println(accounts);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("account-list.jsp");
 		dispatcher.forward(request, response);
 	}

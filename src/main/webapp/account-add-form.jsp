@@ -1,3 +1,4 @@
+<%@page import="dao.AccountDAO"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -54,59 +55,47 @@
 </head>
 <body>
 	<%-- header area --%>
-
 	<jsp:include page="dashboard-header.jsp"></jsp:include>
-
 	<%-- end of header area --%>
 
 	<%-- main dashboard area (show statistics) --%>
 	<main class="mdl-layout__content mdl-color--grey-100">
 		<div class="mdl-grid demo-content">
+			<div class="dash-content">
+				<h1>Account</h1>
 
-			<h1>Account</h1>
-			<table class="table table-bordered" style ="background-color: #FFD9D4">
-				<thead>
-					<tr>
-						<th>ID</th>
-						<th>User Name</th>
-						<th>Password</th>
-						<th>Name</th>
-						<th>Email</th>
-						<th>Phone</th>
-						<th>Address</th>
-						<th colspan= "2">Action</th>
-					</tr>
-				</thead>
-				<tbody>
-					<c:forEach var="account" items="${ACCOUNT_LIST}">
-						<c:url var="updateLink" value="AccountBOServlet">
-							<c:param name="command" value="LOAD"></c:param>
-							<c:param name="id" value="${account.id}"></c:param>
-						</c:url>
+				<h3>Add New Account</h3>
+				<form action="AccountBOServlet" method="GET">
+					<input type="hidden" name="command" value="ADD" />
+				<div class="form-group">
 
-						<c:url var="deleteLink" value="AccountBOServlet">
-							<c:param name="command" value="DELETE"></c:param>
-							<c:param name="id" value="${account.id}"></c:param>
-						</c:url>
+						<input type="text" class="form-input" name="username" placeholder="Username">
+					</div>
+					<div class="form-group">
+						<input type="text" class="form-input" name="password" placeholder="Password">
 
-						<tr>
-							<td>${account.id}</td>
-							<td>${account.username}</td>
-							<td>${account.password}</td>
-							<td>${account.name}</td>
-							<td>${account.email}</td>
-							<td>${account.phone}</td>
-							<td>${account.address}</td>
-							<td><a href="${updateLink}">Update</a></td>
-							<td><a href="${deleteLink}"
-								onclick="if (!(confirm('Delete this Account?'))) return false;">Delete</a></td>
-						</tr>
+					</div>
+					<div class="form-group">
+						<input type="text" class="form-input" name="name" placeholder="Name">
+					</div>
+					<div class="form-group">
+						<input type="email" class="form-input" name="email" placeholder="Email">
+					</div>
+					<div class="form-group">
+						<input type="text" class="form-input" name="phone" placeholder="Phone">
+					</div>
+					<div class="form-group">
+						<input type="text" class="form-input" name="address" placeholder="Address">
+					</div>
+					
 
+					<a class="click-black" href="DashboardServlet"><i
+						class="fa-solid fa-arrow-left"></i> Back to dashboard</a> <input
+						class="click-submit" type="submit" value="Save" />
 
-					</c:forEach>
-				</tbody>
-			</table>
-			<br> <input type="button"" value= "Add Account" onClick="window.location.href='account-add-form.jsp; return false;'" class="account-add-form"/><br>
+				</form>
+
+			</div>
 		</div>
 	</main>
 
