@@ -14,7 +14,7 @@
 <body>
 
 
- <div  class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+ <div  class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header" >
       <header id="header" class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600">
         <div class="mdl-layout__header-row">
           <span class="mdl-layout-title">Beauty Cosmetic Dashboard</span>
@@ -55,6 +55,7 @@
             </ul>
           </div>
         </header>
+    
         
        <!--  NAVIGATION BAR ON THE LEFT -->
         <nav class="demo-navigation mdl-navigation mdl-color--blue-grey-800">

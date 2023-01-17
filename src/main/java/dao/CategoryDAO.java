@@ -19,7 +19,7 @@ public class CategoryDAO {
 		Connection conn = GetConnection.getConnection();
 
 		List<Category> categories = new ArrayList<Category>();
-		String sql = "SELECT * FROM category";
+		String sql = "SELECT * FROM category;";
 		try {
 			PreparedStatement ps = conn.prepareStatement(sql);
 			ResultSet rs = ps.executeQuery();
