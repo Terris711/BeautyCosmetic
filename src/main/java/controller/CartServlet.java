@@ -45,10 +45,11 @@ public class CartServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		
 		HttpSession session = request.getSession();
 		Cart cart = (Cart) session.getAttribute("cart");
 		if (cart==null) {
-			cart= new Cart();00000000000000
+			cart= new Cart();
 		}
 		
 		String product_id=request.getParameter("id");
