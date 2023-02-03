@@ -1,5 +1,7 @@
 package model;
 
+import java.util.Objects;
+
 public class Product {
 	private int id;
 	private String name;
@@ -83,5 +85,20 @@ public class Product {
 		this.brand = brand;
 		this.lotNumber = lotNumber;
 		this.category = category;
+	}
+	@Override
+	public int hashCode() {
+		// TODO Auto-generated method stub
+		return Objects.hash(id);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		Product ob = (Product) obj;
+		if( this.id==ob.getId()) {
+			return true;
+			
+		}
+		return false;
 	}
 }

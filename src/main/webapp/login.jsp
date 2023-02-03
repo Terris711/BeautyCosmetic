@@ -42,7 +42,7 @@
                 <div class="col-lg-12">
                     <h2>SIGN IN</h2>
                     <ul class="breadcrumb">
-                        <li class="breadcrumb-item"><a href=""index.jsp">Home</a></li>
+                        <li class="breadcrumb-item"><a href="shop.jsp">Home</a></li>
                         <li class="breadcrumb-item active"> Sign In </li>
                     </ul>
                 </div>
@@ -51,16 +51,21 @@
     </div>
     <!-- End All Title Box -->
     <!-- Start Contact Us  -->
+    <c:if test="${not empty sessionScope.username }">
+    <c:redirect url="home.jsp"></c:redirect>
+    </c:if>
     <div class="">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-sm-12">
                     <div class="sign-in">
-                        <p>This is the first time you log in, please register.</p>
+                        <p style="text:14px">This is the first time you log in, please <a style="color: pink," href = "register.jsp">register</a>.</p>
                         <form action="LoginServlet" id="form-signin" method="post">
+                        <span style="color: red">${err}</span> <hr>
                             <div class="form-group">
+                            
                                 <i class="far fa-user"></i>
-                                <p style="color: red">${err}</p>
+                                
                                 <input type="text" class="form-input" name= "username" placeholder="Username">
                             </div>
                             <div class="form-group">
@@ -71,12 +76,15 @@
                                 </div>
                             </div>
                             	<span>
-								<input type="checkbox" class="checkbox"> 
-								Keep me signed in
+								<a class="text" href="forgotpass.jsp" style="color: #DAA853;">Forgot PassWord?</a>
 							</span>
                             <input type="submit" value="SIGN IN" class="form-submit">
+                            
+                        
+                
 
                         </form>
+                        
                     </div>
                 </div>
             </div>

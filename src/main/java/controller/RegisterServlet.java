@@ -57,12 +57,19 @@ public class RegisterServlet extends HttpServlet {
 		String address = request.getParameter("address");
 		try {
 			Account account = accountDAO.checkAccountExist(username);
+			if (username.equals("") || password.equals("")| name.equals("")||email.equals("")||phone.equals("")||address.equals("")) {
+				String err = "Please input all information";
+				request.setAttribute("err", err);
+				RequestDispatcher rd = request.getRequestDispatcher("register.jsp");
+				rd.forward(request, response);
+			}
 			if (account == null) {
 				accountDAO.registerAccount(username, password, name, email, phone, address);
 				out.println("<script>");
-				out.println("alert('Account created.');");
-				out.println("location='ShopServlet';");
+				out.println("alert('Account created. Now you can log in.');");
+				out.println("location='login.jsp';");
 				out.println("</script>");
+				
 			} else {
 				out.println("<script>");
 				out.println("alert('Account existed. Please login');");

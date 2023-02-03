@@ -63,6 +63,7 @@
                 <div class="col-lg-8 col-sm-12">
                     <div class="register">
                         <p>Please input your detail here.</p>
+                          <span style="color: red">${err}</span> <hr>
                         <form action="RegisterServlet" id="form-login" method="post">
       
                             <div class="form-group">

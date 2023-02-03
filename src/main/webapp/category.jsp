@@ -5,8 +5,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<c:set var="catDAO" value="<%=new CategoryDAO()%>"></c:set>
-<c:set var="cats" value="${catDAO.allCategory}"></c:set>
+
 </head>
 
 <body>
@@ -28,7 +27,7 @@
 				<div
 					class="list-group list-group-collapse list-group-sm list-group-tree"
 					id="list-group-men" data-children=".sub-men">
-					<c:forEach var="category" items="${cats}">
+					<c:forEach var="category" items="${categoryList}">
 						<div class="list-group-collapse sub-men">
 							<a class="list-group-item list-group-item-action"
 								href="shop.jsp?category_name=${category.name}">${category.name}
