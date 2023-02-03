@@ -22,13 +22,13 @@ public class LoginServlet extends HttpServlet {
 	private AccountDAO accountDAO = new AccountDAO();
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		if (request.getParameter("command").equals(null)) {
-			response.sendRedirect("/shop.jsp");
-		} else if (request.getParameter("command").equals("logout")) {
-			HttpSession session = request.getSession();
-			session.invalidate();
-			response.sendRedirect("/shop.jsp");
-		}
+		
+		 if (request.getParameter("Command").equals("logout") ){
+				HttpSession session = request.getSession();
+				session.removeAttribute("username");
+				response.sendRedirect("home");
+			}
+		
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -37,6 +37,7 @@ public class LoginServlet extends HttpServlet {
 		String password = request.getParameter("password");
 		String err = "";
 		try {
+			String url=null;
 
 			if (username.equals("") || password.equals("")) {
 				err = "Please input your information";
@@ -47,17 +48,18 @@ public class LoginServlet extends HttpServlet {
 				}
 			}
 			if (err.length() > 0)
-				request.setAttribute("err", err);
-			String url = "/login.jsp";
+				{request.setAttribute("err", err);
+			url = "/login.jsp";
+			RequestDispatcher rd = request.getRequestDispatcher(url);
+			rd.forward(request, response);}
 			if (err.length() == 0) {
 				HttpSession session = request.getSession();
 				session.setAttribute("username", username);
-				url = "/shop.jsp";
-			} else {
-				url = "/register.jsp";
-			}
-			RequestDispatcher rd = getServletContext().getRequestDispatcher(url);
-			rd.forward(request, response);
+				url = "home";
+				RequestDispatcher rd = request.getRequestDispatcher(url);
+				rd.forward(request, response);
+			} 
+			
 
 		} catch (Exception e) {
 			// TODO Auto-generated catch block

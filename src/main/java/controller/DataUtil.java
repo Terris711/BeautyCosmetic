@@ -36,7 +36,7 @@ public class DataUtil {
 	
 	public void sendEmail(String email, String name, String passwordAccount) {
 		String to = email; // how i test -> lay email myself -> test :)
-		String from = "beautycosmetic3mien@gmail.com"; 
+		String from = "beautycosmeticbamien@gmail.com"; 
 	    String password = "CodingMentorK3";
 	    
         Properties props = new Properties();

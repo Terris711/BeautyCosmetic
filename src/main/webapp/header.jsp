@@ -1,40 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
-
->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
-    <!-- Mobile Metas -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- Site Metas -->
-    <title>Beauty Cosmetic - Ecommerce Bootstrap 4 HTML Template</title>
-    <meta name="keywords" content="">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <!-- Site Icons -->
-    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <!-- Site CSS -->
-    <link rel="stylesheet" href="css/style.css">
-    <!-- Responsive CSS -->
-    <link rel="stylesheet" href="css/responsive.css">
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/custom.css">
-
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-       
 </head>
 <body>
      <!-- Start Main Top -->
@@ -85,7 +54,13 @@
                     <ul class="nav navbar-nav ml-auto" data-in="fadeInDown" data-out="fadeOutUp">
                         <li class="nav-item active"><a class="nav-link" href="index.jsp">Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="about.jsp">About Us</a></li>
-                        <li class="nav-item"><a class="nav-link" href="LoginServlet?Command=logout"><i class="fa fa-user"></i>${username}</a></li>
+                        <c:if test="${sessionScope.username == null}">
+                        <li class="nav-item"><a class="nav-link" href="login.jsp"><i class="fa fa-user"></i>Login</a></li>
+                        </c:if>
+                        <c:if test="${sessionScope.username != null}">
+                        <li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-user"></i>${username}</a></li>
+                        <li class="nav-item"><a class="nav-link" href="LoginServlet?Command=logout">Logout</a></li>
+                        </c:if>
                         <li class="dropdown">
                             <a href="#" class="nav-link dropdown-toggle arrow" data-toggle="dropdown">SHOP</a>
                             <ul class="dropdown-menu">

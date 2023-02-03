@@ -5,8 +5,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<c:set var="productDAO" value="<%=new ProductDAO()%>"></c:set>
-<c:set var="products" value="${productDAO.allProduct}"></c:set>
+
 </head>
 <body>
 	<div class="col-xl-9 col-lg-9 col-sm-12 col-xs-12 shop-content-right">
@@ -44,7 +43,7 @@
 					<div role="tabpanel" class="tab-pane fade show active"
 						id="grid-view">
 						<div class="row">
-							<c:forEach var="product" items="${products}">
+							<c:forEach var="product" items="${productList}">
 								<div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">
 									<div class="products-single fix">
 										<div class="box-img-hover">
